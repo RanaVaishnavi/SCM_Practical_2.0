@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brew Rite - Coffee Shop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      overflow-x: hidden;
+      font-size: 18px; /* Base font size increased */
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #000000 0%, #1e1e1e 100%);
+      z-index: -2;
+    }
+
+    .container {
+      width: 100%;
+      max-width: none;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .logo img {
+      height: 70px;
+      margin-right: 15px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #e09f3e;
+    }
+
+    .signup-btn {
+      background-color: rgba(158, 42, 43, 0.2);
+      border: 1px solid #9e2a2b;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+
+    .signup-btn:hover {
+      background-color: #9e2a2b;
+    }
+
+    .main {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      padding: 60px 0;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .title {
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .title span {
+      color: #e09f3e;
+    }
+
+    .subtitle {
+      font-size: 2.5rem;
+      color: #e09f3e;
+      margin-bottom: 25px;
+    }
+
+    .description {
+      color: #aaa;
+      line-height: 1.8;
+      font-size: 1.2rem;
+      margin-bottom: 35px;
+      max-width: 600px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 25px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid transparent;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background-color: rgba(158, 42, 43, 0.2);
+      border-color: #9e2a2b;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: #9e2a2b;
+    }
+
+    .btn-secondary {
+      background-color: rgba(224, 159, 62, 0.2);
+      border-color: #e09f3e;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background-color: #e09f3e;
+    }
+
+    .image-area {
+      flex: 1;
+      text-align: center;
+    }
+
+    .image-area img {
+      max-width: 100%;
+      width: 450px;
+      height: auto;
+      filter: drop-shadow(0 5px 20px rgba(0, 0, 0, 0.6));
+    }
+
+    @media (max-width: 992px) {
+      .main {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .content, .image-area {
+        width: 100%;
+      }
+
+      .content {
+        margin-bottom: 30px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .image-area img {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="container">
+    <header class="header">
+      <a href="#" class="logo">
+        <img src="http://www.pngmart.com/files/4/Coffee-Cup-PNG-Photos.png" alt="Brew Rite coffee cup logo" />
+        Brew Rite
+      </a>
+
+      <nav class="nav">
+        <a href="#" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="#">About Us</a>
+        <a href="#">Contacts</a>
+      </nav>
+
+      <a href="#" class="signup-btn">Sign Up</a>
+    </header>
+
+    <main class="main">
+      <div class="content">
+        <h1 class="title"><span>Brew</span> Rite</h1>
+        <h2 class="subtitle">Perfection in Every Cup</h2>
+        <p class="description">
+          Experience the perfect balance of flavor and aroma with our premium coffee selection.
+          Each cup is crafted with precision and care, using only the finest beans sourced from around the world.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Sign Up</a>
+          <a href="#" class="btn btn-secondary">Login</a>
+        </div>
+      </div>
+
+      <div class="image-area">
+        <img src="http://www.pngmart.com/files/4/Coffee-Cup-PNG-Photos.png" alt="Coffee Cup" />
+      </div>
+    </main>
+  </div>
+</body>
+</html>

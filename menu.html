@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brew Rite - Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 45px;
+      margin-right: 12px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 40px;
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e09f3e;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      text-align: center;
+      margin: 50px 0;
+      color: #e09f3e;
+    }
+
+    .menu-section {
+      margin-bottom: 60px;
+    }
+
+    .menu-title {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: #e09f3e;
+      border-bottom: 2px solid #e09f3e;
+      display: inline-block;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .menu-item {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 14px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .menu-item h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .menu-item p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px;
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.7rem;
+      }
+
+      .menu-title {
+        font-size: 2rem;
+      }
+
+      nav a {
+        font-size: 1.1rem;
+        margin-left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="#" class="logo">
+        <img src="http://www.pngmart.com/files/4/Coffee-Cup-PNG-Photos.png" alt="Coffee Logo" />
+        Brew Rite
+      </a>
+      <nav>
+        <a href="scm.html" >Home</a>
+        <a href="#" class="active">Menu</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <h1>Our Menu</h1>
+
+    <div class="menu-section">
+      <h2 class="menu-title">Coffee</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://www.acouplecooks.com/wp-content/uploads/2020/10/how-to-make-a-macchiato-003-784x980.jpg" alt="Espresso">
+          <h3>Espresso</h3>
+          <p>Rich, bold shot of pure coffee energy.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://wallpapercave.com/wp/wp3631939.jpg" alt="Cappuccino">
+          <h3>Cappuccino</h3>
+          <p>Espresso with steamed milk and frothy foam.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://www.thatlangon.com/wp-content/uploads/2021/12/ca-phe-Latte.jpg" alt="Latte">
+          <h3>Latte</h3>
+          <p>Smooth espresso and steamed milk blend.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps47374_TH1789928D77D_WEB.jpg" alt="Mocha">
+          <h3>Mocha</h3>
+          <p>Chocolate espresso with whipped cream.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="menu-title">Sweet Dishes</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://s3.amazonaws.com/images.ecwid.com/images/26819152/1835772474.jpg" alt="Croissant">
+          <h3>Chocolate Croissant</h3>
+          <p>Buttery layers filled with melted chocolate.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://images3.alphacoders.com/717/717561.jpg" alt="Coffee Cake">
+          <h3>Coffee Cake</h3>
+          <p>Moist cinnamon coffee-flavored delight.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://wallpaperbat.com/img/185364-tiramisu-download-wallpaper.jpg" alt="Tiramisu">
+          <h3>Tiramisu</h3>
+          <p>Classic dessert infused with espresso.</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://www.wallpaperflare.com/static/887/30/400/macaroon-recipe-cooking-chocolate-wallpaper.jpg" alt="Macarons">
+          <h3>Macarons</h3>
+          <p>Delicate almond meringue cookies.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Brew Rite. Crafted with love and caffeine.
+    </footer>
+  </div>
+</body>
+</html>
+
