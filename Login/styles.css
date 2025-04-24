@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: #000; /* fallback background */
+  }
+  
+  .left-image {
+    flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+    backdrop-filter: blur(12px);    /* blur effect */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    padding: 60px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
+                0 0 10px rgba(166, 124, 82, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .login-box h2 {
+    color: #f5c27f;
+    margin-bottom: 30px;
+  }
+  
+  .login-box label {
+    color: #fff;
+    align-self: flex-start;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-weight: 500;
+  }
+  
+  .login-box input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #2e2e2e;
+    color: #fff;
+  }
+  
+  .login-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #c19160;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .login-box button:hover {
+    background-color: #b17c4d;
+  }
+  
+  .forgot {
+    margin-top: 15px;
+    color: #f5c27f;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .forgot:hover {
+    text-decoration: underline;
+  }
+  
