@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Coffee Haven</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-image"></div>
+
+  <div class="contact-container">
+    <h1>Contact Brew Rite</h1>
+    <p>We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
+    
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="text" id="subject" placeholder="Subject" required />
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div id="formMessage"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
