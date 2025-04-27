@@ -1,96 +1,164 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  body, html {
-    height: 100%;
-    width: 100%;
-  }
-  
-  .container {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    background-color: #000; /* fallback background */
-  }
-  
-  .left-image {
-    flex: 1;
-    background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93');
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .login-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.4); /* semi-transparent black */
-    backdrop-filter: blur(12px);    /* blur effect */
-    -webkit-backdrop-filter: blur(12px); /* Safari support */
-    padding: 60px;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 450px;
-    margin: auto;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
-                0 0 10px rgba(166, 124, 82, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .login-box h2 {
-    color: #f5c27f;
-    margin-bottom: 30px;
-  }
-  
-  .login-box label {
-    color: #fff;
-    align-self: flex-start;
-    margin-bottom: 5px;
-    margin-top: 15px;
-    font-weight: 500;
-  }
-  
-  .login-box input {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background-color: #2e2e2e;
-    color: #fff;
-  }
-  
-  .login-box button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: #c19160;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .login-box button:hover {
-    background-color: #b17c4d;
-  }
-  
-  .forgot {
-    margin-top: 15px;
-    color: #f5c27f;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .forgot:hover {
-    text-decoration: underline;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+.main-container {
+  background: url('https://thumbs.dreamstime.com/b/aesthetic-flat-lay-social-media-pastel-light-colours-flowers-coffee-theme-collage-cozy-morning-generative-ai-309037198.jpg') no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #5a3e1b;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #5a3e1b;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #d2691e;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100% - 80px);
+  padding: 50px 100px;
+}
+
+.text-content {
+  width: 50%;
+}
+
+.text-content h1 {
+  font-size: 48px;
+  color: #5a3e1b;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.get-started-btn {
+  padding: 12px 25px;
+  background-color: #5a3e1b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.get-started-btn:hover {
+  background-color: #7b5224;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  width: 350px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #5a3e1b;
+  margin-bottom: 20px;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.remember-forgot a {
+  text-decoration: none;
+  color: #5a3e1b;
+}
+
+.login-btn {
+  padding: 12px;
+  background-color: #5a3e1b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #7b5224;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup-link a {
+  text-decoration: none;
+  color: #5a3e1b;
+  font-weight: 600;
+}
