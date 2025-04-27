@@ -1,14 +1,13 @@
-function validateLogin(event) {
-    event.preventDefault();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
   
-    if (!email || !password) {
-      alert("Please fill in both fields.");
-      return false;
-    }
-  
-    alert(`Welcome, ${email}!`);
-    return true;
-  }
-  
+  const email = document.querySelector('input[type="email"]').value;
+  const password = document.querySelector('input[type="password"]').value;
+  const rememberMe = document.getElementById('rememberMe').checked;
+
+  console.log('Email:', email);
+  console.log('Password:', password);
+  console.log('Remember Me:', rememberMe);
+
+  alert('Login clicked! (Functionality can be added)');
+});
