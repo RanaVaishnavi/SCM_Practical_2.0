@@ -6,7 +6,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const subject = document.getElementById("subject").value.trim();
   const message = document.getElementById("message").value.trim();
   const formMessage = document.getElementById("formMessage");
-
+  
   if (!name || !email || !subject || !message) {
     formMessage.style.color = "red";
     formMessage.textContent = "Please fill out all fields.";
