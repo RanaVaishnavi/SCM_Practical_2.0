@@ -6,6 +6,5 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
   console.log('Email:', email);
   console.log('Password:', password);
   console.log('Remember Me:', rememberMe);
-  
   alert('Login clicked! (Functionality can be added)');
 });
