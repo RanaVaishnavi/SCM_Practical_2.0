@@ -9,7 +9,6 @@
     background: #fff9f3;
     color: #5a4a42;
   }
-  
   .header {
     background: #f7e7d7;
     padding: 20px 50px;
@@ -20,7 +19,6 @@
     top: 0;
     z-index: 1000;
   }
-  
   .logo {
     font-size: 2rem;
     font-weight: bold;
