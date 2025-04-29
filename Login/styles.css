@@ -17,7 +17,6 @@ body, html {
   position: relative;
   overflow: hidden;
 }
-
 header {
   display: flex;
   justify-content: space-between;
