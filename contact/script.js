@@ -17,6 +17,6 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   formMessage.style.color = "green";
   formMessage.textContent = "Thank you! Your message has been sent.";
 
-  document.getElementById("contactForm").reset();
+  document.getElementById("contactForm").reset(); 
 });
  
