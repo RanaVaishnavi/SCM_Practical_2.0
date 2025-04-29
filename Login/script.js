@@ -1,6 +1,5 @@
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  
   const email = document.querySelector('input[type="email"]').value;
   const password = document.querySelector('input[type="password"]').value;
   const rememberMe = document.getElementById('rememberMe').checked;
