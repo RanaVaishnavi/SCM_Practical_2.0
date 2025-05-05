@@ -1,15 +1,29 @@
-name: Welcome New Contributors
+name: Deploy to GitHub Pages
 
 on:
-  pull_request_target:
-   types : [opened]
+  push:
+    branches:
+      - main  # or master
 
 jobs:
-  greeting:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Greet the contributor
-        uses: actions/first-interacted
-        with
-               repo-token: $ {{secrets.GITHUB_TOKEN}}
-               pr-message: "👋 Hello! Thanks for opening your first pull request. We appreciate your contribution!"
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Build Project (Optional if using build tools)
+        run: |
+          echo "No build needed for static site"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Set this to your HTML root folder
