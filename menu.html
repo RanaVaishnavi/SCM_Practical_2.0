@@ -13,18 +13,34 @@
     }
 
     html, body {
+      background-image: url(https://www.setaswal4K-Coffee-Book-Glasses-Wallpaper-3840x2160.jpg);
+      background-size: cover;
       background-color: #1a1a1a;
       color: #ffffff;
       min-height: 100vh;
       width: 100%;
+      position: relative; /* Needed for cart positioning */
+      overflow-x: hidden; /* Prevent horizontal scrollbar when cart opens */
     }
+
+    body.cart-open {
+        overflow: hidden; /* Prevent background scroll when cart is open */
+    }
+
     .container {
       width: 100%;
       min-height: 100vh;
       max-width: 1400px;
       margin: 0 auto;
       padding: 40px 20px;
+      transition: margin-right 0.5s ease; /* Add transition for smooth shift */
     }
+
+    body.cart-open .container {
+        margin-right: 370px; /* Shift main content when cart opens */
+    }
+
+
     header {
       display: flex;
       justify-content: space-between;
@@ -46,6 +62,11 @@
       margin-right: 12px;
     }
 
+    nav {
+        display: flex;
+        align-items: center; /* Align items vertically */
+    }
+
     nav a {
       color: #fff;
       text-decoration: none;
@@ -53,9 +74,43 @@
       font-size: 1.3rem;
       transition: color 0.3s;
     }
+
     nav a:hover {
       color: #e09f3e;
     }
+
+    /* Cart Icon Styles */
+    .cart-icon {
+        position: relative;
+        cursor: pointer;
+        margin-left: 40px; /* Spacing from other nav items */
+    }
+
+    .cart-icon svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+        transition: fill 0.3s;
+    }
+
+    .cart-icon:hover svg {
+        fill: #e09f3e;
+    }
+
+    .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background-color: #e09f3e;
+        color: #1a1a1a;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        min-width: 18px;
+        text-align: center;
+    }
+
 
     h1 {
       font-size: 3.5rem;
@@ -88,7 +143,11 @@
       border-radius: 14px;
       text-align: center;
       transition: transform 0.3s, background 0.3s;
+      display: flex; /* Use flexbox for better alignment */
+      flex-direction: column; /* Stack elements vertically */
+      justify-content: space-between; /* Push button to bottom */
     }
+
     .menu-item:hover {
       transform: translateY(-10px);
       background-color: rgba(255, 255, 255, 0.08);
@@ -101,16 +160,42 @@
       border-radius: 10px;
       margin-bottom: 15px;
     }
-    
+
     .menu-item h3 {
       font-size: 1.6rem;
       margin-bottom: 10px;
       color: #fff;
+      flex-grow: 1; /* Allow title to take space */
     }
 
     .menu-item p {
       font-size: 1.1rem;
       color: #ccc;
+      flex-grow: 1; /* Allow description to take space */
+      margin-bottom: 10px;
+    }
+
+    .menu-item .price {
+      font-size: 1.2rem;
+      color: #e09f3e;
+      margin: 12px 0;
+      font-weight: bold;
+    }
+
+    .menu-item button.add-to-cart-btn { /* Target specific buttons */
+      background-color: #e09f3e;
+      color: #1a1a1a;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: auto; /* Push button to bottom */
+    }
+
+    .menu-item button.add-to-cart-btn:hover {
+      background-color: #f1b864;
     }
 
     footer {
@@ -118,8 +203,167 @@
       margin-top: 50px;
       padding: 30px;
       font-size: 1rem;
-      color:#aaa;
+      color: #aaa;
     }
+
+    /* Cart Sidebar Styles */
+    .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px; /* Start off-screen */
+        width: 350px; /* Width of the cart */
+        height: 100%;
+        background-color: #2a2a2a;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        transition: right 0.5s ease;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .cart-sidebar.open {
+        right: 0; /* Slide in */
+    }
+
+    .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #444;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+
+    .cart-header h2 {
+        font-size: 1.8rem;
+        color: #e09f3e;
+    }
+
+    .close-cart-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .close-cart-btn:hover {
+        color: #e09f3e;
+    }
+
+    .cart-items {
+        list-style: none;
+        flex-grow: 1;
+        overflow-y: auto; /* Allow scrolling for items */
+        margin-bottom: 20px;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #444;
+    }
+     .cart-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+     }
+
+    .cart-item img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-right: 15px;
+    }
+
+    .cart-item-details {
+        flex-grow: 1;
+    }
+
+    .cart-item-details h4 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .cart-item-details .price {
+        font-size: 0.9rem;
+        color: #e09f3e;
+        margin-bottom: 5px;
+    }
+
+    .cart-item-quantity {
+        display: flex;
+        align-items: center;
+    }
+
+    .cart-item-quantity button {
+        background-color: #444;
+        color: #fff;
+        border: none;
+        width: 25px;
+        height: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 3px;
+        margin: 0 5px;
+    }
+    .cart-item-quantity button:hover {
+        background-color: #555;
+    }
+    .cart-item-quantity span {
+        min-width: 20px;
+        text-align: center;
+    }
+
+    .cart-item-remove {
+        background: none;
+        border: none;
+        color: #ff6b6b;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    .cart-item-remove:hover {
+        color: #ff4757;
+    }
+
+
+    .cart-footer {
+        border-top: 1px solid #444;
+        padding-top: 20px;
+    }
+
+    .cart-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .checkout-btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background-color: #e09f3e;
+        color: #1a1a1a;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .checkout-btn:hover {
+        background-color: #f1b864;
+    }
+
 
     @media (max-width: 768px) {
       h1 {
@@ -134,6 +378,21 @@
         font-size: 1.1rem;
         margin-left: 20px;
       }
+
+      /* Adjust cart icon spacing on smaller screens */
+        .cart-icon {
+            margin-left: 20px;
+        }
+
+        /* Adjust cart width for smaller screens */
+        .cart-sidebar {
+            width: 90%;
+            right: -100%; /* Start fully off-screen */
+        }
+        body.cart-open .container {
+             margin-right: 0; /* Don't shift content on mobile */
+        }
+
     }
   </style>
 </head>
@@ -145,10 +404,14 @@
         Brew Rite
       </a>
       <nav>
-        <a href="scm.html" >Home</a>
+        <a href="scm.html">Home</a>
         <a href="#" class="active">Menu</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
+        <div class="cart-icon" id="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
       </nav>
     </header>
 
@@ -157,51 +420,94 @@
     <div class="menu-section">
       <h2 class="menu-title">Coffee</h2>
       <div class="menu-grid">
-        <div class="menu-item">
+        <div class="menu-item" data-id="espresso">
           <img src="https://www.acouplecooks.com/wp-content/uploads/2020/10/how-to-make-a-macchiato-003-784x980.jpg" alt="Espresso">
           <h3>Espresso</h3>
           <p>Rich, bold shot of pure coffee energy.</p>
+          <div class="price" data-price="2.50">$2.50</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-id="cappuccino">
           <img src="https://wallpapercave.com/wp/wp3631939.jpg" alt="Cappuccino">
           <h3>Cappuccino</h3>
           <p>Espresso with steamed milk and frothy foam.</p>
+          <div class="price" data-price="3.00">$3.00</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
-        <div class="menu-item">
+         <div class="menu-item" data-id="latte">
           <img src="https://www.thatlangon.com/wp-content/uploads/2021/12/ca-phe-Latte.jpg" alt="Latte">
           <h3>Latte</h3>
           <p>Smooth espresso and steamed milk blend.</p>
+          <div class="price" data-price="3.50">$3.50</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-id="mocha">
           <img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps47374_TH1789928D77D_WEB.jpg" alt="Mocha">
           <h3>Mocha</h3>
           <p>Chocolate espresso with whipped cream.</p>
+          <div class="price" data-price="4.00">$4.00</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
       </div>
     </div>
-
     <div class="menu-section">
       <h2 class="menu-title">Sweet Dishes</h2>
       <div class="menu-grid">
-        <div class="menu-item">
+        <div class="menu-item" data-id="chocolate-croissant">
           <img src="https://s3.amazonaws.com/images.ecwid.com/images/26819152/1835772474.jpg" alt="Croissant">
           <h3>Chocolate Croissant</h3>
           <p>Buttery layers filled with melted chocolate.</p>
+          <div class="price" data-price="2.80">$2.80</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-id="coffee-cake">
           <img src="https://images3.alphacoders.com/717/717561.jpg" alt="Coffee Cake">
           <h3>Coffee Cake</h3>
           <p>Moist cinnamon coffee-flavored delight.</p>
+          <div class="price" data-price="3.20">$3.20</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
-        <div class="menu-item">
+         <div class="menu-item" data-id="tiramisu">
           <img src="https://wallpaperbat.com/img/185364-tiramisu-download-wallpaper.jpg" alt="Tiramisu">
           <h3>Tiramisu</h3>
           <p>Classic dessert infused with espresso.</p>
+          <div class="price" data-price="4.50">$4.50</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-id="macarons">
           <img src="https://www.wallpaperflare.com/static/887/30/400/macaroon-recipe-cooking-chocolate-wallpaper.jpg" alt="Macarons">
           <h3>Macarons</h3>
           <p>Delicate almond meringue cookies.</p>
+          <div class="price" data-price="5.00">$5.00</div>
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+         <div class="menu-item" data-id="coffee-candy">
+          <img src="https://img.freepik.com/premium-photo/assorted-candy-three-distinct-halloween-bowls_908985-33167.jpg" alt="Coffee Candy">
+          <h3>Coffee Candy</h3>
+          <p> Hard or soft candies flavored with coffee.</p>
+          <div class="price" data-price="4.00">$4.00</div>
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+        <div class="menu-item" data-id="cappuccino-muffins">
+          <img src="https://micoopkitchen.com/wp-content/uploads/2018/06/cappucinno-muffin-1024x683.jpg" alt="Cappuccino Muffins">
+          <h3>Cappuccino Muffins</h3>
+          <p>Muffins made with coffee and often topped with cream.</p>
+          <div class="price" data-price="6.00">$6.00</div>
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+        <div class="menu-item" data-id="mocha-cake">
+          <img src="https://northwestcookingafloat.com/wp-content/uploads/2017/01/ChocolateMochaCake2-1080x861.jpg" alt="Mocha Cake">
+          <h3>Mocha Cake</h3>
+          <p>Cake flavored with a blend of coffee and chocolate.</p>
+          <div class="price" data-price="5.50">$5.50</div>
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+        <div class="menu-item" data-id="coffee-eclair">
+          <img src="https://images7.alphacoders.com/884/thumb-1920-884354.jpg" alt="Coffee Éclair">
+          <h3>Coffee Éclair</h3>
+          <p>A pastry filled with coffee-flavored cream and topped with coffee glaze.</p>
+          <div class="price" data-price="4.50">$4.50</div>
+          <button class="add-to-cart-btn">Add to cart</button>
         </div>
       </div>
     </div>
@@ -210,6 +516,148 @@
       &copy; 2025 Brew Rite. Crafted with love and caffeine.
     </footer>
   </div>
+  <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+          <h2>Your Cart</h2>
+          <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+      </div>
+      <ul class="cart-items" id="cart-items">
+      </ul>
+      <div class="cart-footer">
+          <div class="cart-total">
+              <span>Total:</span>
+              <span id="cart-total-price">$0.00</span>
+          </div>
+          <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartIcon = document.getElementById('cart-icon');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartCountElement = document.getElementById('cart-count');
+        const cartTotalPriceElement = document.getElementById('cart-total-price');
+        const body = document.body;
+
+        let cart = []; 
+        cartIcon.addEventListener('click', () => {
+            cartSidebar.classList.add('open');
+            body.classList.add('cart-open');
+        });
+        closeCartBtn.addEventListener('click', () => {
+            cartSidebar.classList.remove('open');
+            body.classList.remove('cart-open');
+        });
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const menuItem = button.closest('.menu-item');
+                const id = menuItem.dataset.id;
+                const name = menuItem.querySelector('h3').innerText;
+                const price = parseFloat(menuItem.querySelector('.price').dataset.price);
+                const imgSrc = menuItem.querySelector('img').src;
+
+                addToCart(id, name, price, imgSrc);
+            });
+        });
+
+        cartItemsContainer.addEventListener('click', (event) => {
+            const target = event.target;
+            const cartItem = target.closest('.cart-item');
+            if (!cartItem) return; 
+
+            const id = cartItem.dataset.id;
+
+            if (target.classList.contains('quantity-change')) {
+                const action = target.dataset.action;
+                changeQuantity(id, action);
+            }
+
+            if (target.classList.contains('cart-item-remove')) {
+                removeFromCart(id);
+            }
+        });
+
+
+
+        function addToCart(id, name, price, imgSrc) {
+            const existingItemIndex = cart.findIndex(item => item.id === id);
+
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push({ id, name, price, quantity: 1, imgSrc });
+            }
+            console.log("Cart updated:", cart); 
+            renderCart();
+        }
+
+        function changeQuantity(id, action) {
+            const itemIndex = cart.findIndex(item => item.id === id);
+            if (itemIndex === -1) return; 
+            if (action === 'increase') {
+                cart[itemIndex].quantity += 1;
+            } else if (action === 'decrease') {
+                cart[itemIndex].quantity -= 1;
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1);
+                }
+            }
+            renderCart();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            renderCart();
+        }
+
+
+        function renderCart() {
+            cartItemsContainer.innerHTML = '';
+
+            let totalQuantity = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                 cartItemsContainer.innerHTML = '<p style="text-align: center; color: #aaa;">Your cart is empty.</p>';
+            } else {
+                 cart.forEach(item => {
+                    totalQuantity += item.quantity;
+                    totalPrice += item.price * item.quantity;
+
+                    const li = document.createElement('li');
+                    li.classList.add('cart-item');
+                    li.dataset.id = item.id; 
+
+                    li.innerHTML = `
+                        <img src="${item.imgSrc}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <div class="price">$${item.price.toFixed(2)}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-change" data-action="decrease">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="quantity-change" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        <button class="cart-item-remove">Remove</button>
+                    `;
+                    cartItemsContainer.appendChild(li);
+                });
+            }
+
+
+            cartCountElement.innerText = totalQuantity;
+
+            cartTotalPriceElement.innerText = `$${totalPrice.toFixed(2)}`;
+        }
+        renderCart();
+
+    });
+  </script>
 </body>
 </html>
 
