@@ -12,9 +12,9 @@
 
 ## Introduction
 
-**Brew Rite** is a website designed for coffee lovers and food enthusiasts. It helps users explore different types of coffee and sweets related to it. Additionally, users can browse and order a variety of delicious food and beverages, making it a complete coffee and dining experience.
+**Brew Rite** is a website designed for coffee lovers and food enthusiasts. It helps users explore different types of coffee and sweets related to it. Additionally, users can browse and order a variety of delicious food making it a complete coffee experience.
 
-Whether you're looking for your morning coffee fix, an afternoon snack, or a full meal, **Brew Rite** makes ordering easy and enjoyable. The platform provides menu options to ensure customers get exactly what they need.
+Whether you're looking for your morning coffee fix, an afternoon snack, **Brew Rite** makes ordering easy and enjoyable. The platform provides menu options to ensure customers get exactly what they need.
 
 ## Technologies Used
 
@@ -28,4 +28,4 @@ Whether you're looking for your morning coffee fix, an afternoon snack, or a ful
 
 This project is part of the **Source Code Management (SCM)** course, following best coding practices such as using Git for version control and maintaining a structured development workflow.
 
-Whether you’re craving a fresh cup of coffee or a tasty meal, **Brew Rite** is your go-to destination for ordering food and beverages! ☕🍽️✨
+If you’re craving a fresh cup of coffee, **Brew Rite** is your go-to destination for ordering coffee! ☕🍽️✨
