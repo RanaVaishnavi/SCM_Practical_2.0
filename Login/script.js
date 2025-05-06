@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault(); // Stop page refresh
-
+      
       const email = form.querySelector('input[type="email"]').value;
       const password = form.querySelector('input[type="password"]').value;
 
